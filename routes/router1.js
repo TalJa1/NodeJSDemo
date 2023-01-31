@@ -18,10 +18,16 @@ router.get('/product', (req, res) => {
 })
 
 router.get('/product/:id', (req, res) => {
-  res.json({
-    "ID":`${req.params.id}`,
-    "ProductName": "A"
-  })
+  if ( 0 < req.params.id < 5) {
+    res.json({
+      "ID":`${req.params.id}`,
+      "ProductName": "A"
+    })
+  } else if (req.params.id > 5){
+    res.json({
+      "Mess":"Hello"
+    })
+  }
 })
 
 module.exports = router
